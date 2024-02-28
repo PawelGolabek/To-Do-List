@@ -1,8 +1,8 @@
-.a {}
-
 body {
     display: flex;
-    background-color: #c0ecfa;
+    background-color: #c0ecfa; background: rgb(111,111,228);
+    background: linear-gradient(90deg, rgba(111,111,228,1) 0%, rgba(0,212,255,1) 100%); 
+    font-family: Verdana;
 }
 
 .tabela {
@@ -12,7 +12,14 @@ body {
 
 td {
     min-width: 175px;
+    padding: 3px;
+    margin: 0;
+    font-weight: 100;
+    height: 30px;
 }
+
+
+
 
 td:nth-of-type(5n+0) {
     background-color: #98d5e7;
@@ -50,9 +57,37 @@ td:nth-of-type(5n+5) {
     border-radius: 8px;
 }
 
+
+tr:first-child > td{
+    background-color: #98d5e7;
+    border-radius: 4px;
+    border:none;
+
+
+}
+
+td:first-child{
+
+    width: 500px;
+
+}
+
 .lp {
     min-width: 20px;
     max-width: 20px;
+}
+
+
+.customButton{
+    margin: 0px;
+    max-height: 100%;
+    padding: 15px;
+    border-radius: 0px;
+    min-width: 87px;
+    font-weight: 700;
+    background-color: #98d5e7;
+    border-radius: 8px;
+
 }
 
 button {
@@ -62,6 +97,14 @@ button {
     font-weight: 700;
 }
 
+.rightPanelButton{
+    width: 50%;
+    padding: 0.5em;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-top: 10px;
+
+}
 button:nth-of-type(even) {
 
     background-color: #98d5e7;
@@ -74,8 +117,35 @@ button:nth-of-type(odd) {
 
 input {
 
-    padding: 0.5em;
+    padding: 0em;
     font-weight: 700;
     border-radius: 8px;
+    margin: 0;
     background-color: #98d5e7;
+}
+
+h1{
+    font-family: Verdana;
+    color: #11375c;
+
+}
+
+p{
+    color: #11375c;
+    font-family: Verdana;
+}
+
+form{
+    margin: auto;
+    margin-top: 0px;
+
+}
+
+div{
+    padding-top: 0px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px  #98d5e7 solid;
+    padding: 20px
+
 }

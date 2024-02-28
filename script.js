@@ -1,319 +1,322 @@
+var Lp = 0;
 
+function send() {
+    // Lp               
 
-        var Lp = 0;
+    var cell = document.createElement("td");
+    cell.id = ("a" + Lp);
+    cell.classList.add("lp");
+    var tekstKomorki = document.createTextNode(Lp);
+    cell.appendChild(tekstKomorki);
+    var start = document.getElementById("start");
+    start.appendChild(cell);
 
-        function update() {
+    let Dzialanie = document.getElementById("Dzialanie").value;
 
-        }
 
-        function wyslij() {
-            // Lp               
+    var cell = document.createElement("td");
+    cell.id = ("Dzialanie" + Lp);
+    cell.innerHTML = Dzialanie;
+    var start = document.getElementById("start");
+    start.appendChild(cell);
 
-            var komorka = document.createElement("td");
-            komorka.id = ("a" + Lp);
-            komorka.className = "lp";
-            var tekstKomorki = document.createTextNode(Lp);
-            komorka.appendChild(tekstKomorki);
-            var start = document.getElementById("start");
-            start.appendChild(komorka);
+    let Odpowiedzialny = document.getElementById("Data").value;
 
-            let Dzialanie = document.getElementById("Dzialanie").value;
+    var cell = document.createElement("td");
+    cell.id = ("Odpowiedzialny" + Lp);
+    var tekstKomorki = document.createTextNode(Odpowiedzialny);
+    cell.appendChild(tekstKomorki);
+    var start = document.getElementById("start");
+    start.appendChild(cell);
 
+    let Data = document.getElementById("Odpowiedzialny").value;
 
-            var komorka = document.createElement("td");
-            komorka.id = ("Dzialanie" + Lp);
-            komorka.innerHTML = Dzialanie;
-            var start = document.getElementById("start");
-            start.appendChild(komorka);
 
-            let Odpowiedzialny = document.getElementById("Data").value;
+    var cell = document.createElement("td");
+    cell.id = ("Data" + Lp);
+    var tekstKomorki = document.createTextNode(Data);
+    cell.appendChild(tekstKomorki);
+    var start = document.getElementById("start");
+    start.appendChild(cell);
 
-            var komorka = document.createElement("td");
-            komorka.id = ("Odpowiedzialny" + Lp);
-            var tekstKomorki = document.createTextNode(Odpowiedzialny);
-            komorka.appendChild(tekstKomorki);
-            var start = document.getElementById("start");
-            start.appendChild(komorka);
+    let Stan = document.getElementById("Stan").value;
 
-            let Data = document.getElementById("Odpowiedzialny").value;
 
 
-            var komorka = document.createElement("td");
-            komorka.id = ("Data" + Lp);
-            var tekstKomorki = document.createTextNode(Data);
-            komorka.appendChild(tekstKomorki);
-            var start = document.getElementById("start");
-            start.appendChild(komorka);
+    var cell = document.createElement("td");
+    cell.id = ("Stan" + Lp);
+    var tekstKomorki = document.createTextNode(Stan);
+    cell.appendChild(tekstKomorki);
+    var start = document.getElementById("start");
+    start.appendChild(cell);
 
-            let Stan = document.getElementById("Stan").value;
 
+    var cell = document.createElement("button");
+    cell.id = ("edit" + Lp);
+    cell.innerHTML = "Edit";
+    cell.classList.add("customButton");
+    cell.onclick = function () {
+        editKomorke(this.id);
+    }; // dodaj funkcje o parametrze id buttona
+    start.appendChild(cell); // total hours wasted here: 4 VICTORY !!!!!!!
 
 
-            var komorka = document.createElement("td");
-            komorka.id = ("Stan" + Lp);
-            var tekstKomorki = document.createTextNode(Stan);
-            komorka.appendChild(tekstKomorki);
-            var start = document.getElementById("start");
-            start.appendChild(komorka);
+    var cell = document.createElement("button");
+    cell.id = ("delete" + Lp);
+    cell.innerHTML = "Delete";
+    cell.classList.add("customButton");
+    cell.addEventListener('click', function () {
+        usunKomorke(this.id);
+    }); // sdgdfgdf
+    start.appendChild(cell);
 
 
-            var komorka = document.createElement("button");
-            komorka.id = ("edit" + Lp);
-            komorka.innerHTML = "Edytuj";
-            komorka.onclick = function () {
-                edytujKomorke(this.id);
-            }; // dodaj funkcje o parametrze id buttona
-            start.appendChild(komorka); // total hours wasted here: 4 VICTORY !!!!!!!
 
+    var cell = document.createElement("tr");
+    cell.id = ("tr" + Lp);
+    start.appendChild(cell);
 
-            var komorka = document.createElement("button");
-            komorka.id = ("delete" + Lp);
-            komorka.innerHTML = "Usun";
-            komorka.addEventListener('click', function () {
-                usunKomorke(this.id);
-            }); // sdgdfgdf
-            start.appendChild(komorka);
+    Lp += 1;
+}
 
+function edit(i) {
+    LpEdit = document.getElementById("LpEdit").value;
+    document.getElementById(("Dzialanie" + LpEdit)).innerHTML = document.getElementById("DzialanieEdit").value;
+    document.getElementById(("Odpowiedzialny" + (document.getElementById("LpEdit").value))).innerHTML = document
+        .getElementById("OdpowiedzialnyEdit").value;
+    document.getElementById(("Data" + (document.getElementById("LpEdit").value))).innerHTML = document
+        .getElementById("DataEdit").value;
+    document.getElementById(("Stan" + (document.getElementById("LpEdit").value))).innerHTML = document
+        .getElementById("StanEdit").value;
+    if (alerts) {
+        alert("Pomyslnie wyedytowano rzad " + LpEdit);
+    }
+}
 
+function editKomorke(i) {
 
-            var komorka = document.createElement("tr");
-            komorka.id = ("tr" + Lp);
-            start.appendChild(komorka);
+    for (var tmpedit = -1; !isNaN(i.slice(tmpedit)); tmpedit--) {}
+    LpEdit = i.slice(tmpedit + 1);
 
-            Lp += 1;
-        }
 
-        function edytuj(i) {
-            LpEdit = document.getElementById("LpEdit").value;
-            document.getElementById(("Dzialanie" + LpEdit)).innerHTML = document.getElementById("DzialanieEdit").value;
-            document.getElementById(("Odpowiedzialny" + (document.getElementById("LpEdit").value))).innerHTML = document
-                .getElementById("OdpowiedzialnyEdit").value;
-            document.getElementById(("Data" + (document.getElementById("LpEdit").value))).innerHTML = document
-                .getElementById("DataEdit").value;
-            document.getElementById(("Stan" + (document.getElementById("LpEdit").value))).innerHTML = document
-                .getElementById("StanEdit").value;
-            if (alerts) {
-                alert("Pomyslnie wyedytowano rzad " + LpEdit);
-            }
-        }
+    //Dzialanie
+    tmp = (document.getElementById(("Dzialanie" + LpEdit)).innerHTML);
+    tmpObject = document.getElementById(("Dzialanie" + LpEdit)).parentNode;
+    tmpObject.removeChild(document.getElementById("Dzialanie" + LpEdit));
 
-        function edytujKomorke(i) {
+    var insertcell = document.createElement("td");
 
-            for (var tmpedit = -1; !isNaN(i.slice(tmpedit)); tmpedit--) {}
-            LpEdit = i.slice(tmpedit + 1);
+    var insertObjectTD = document.createElement("td");
+    var insertObject = document.createElement("input");
 
+    insertObject.classList.add("tdInputClass");
+    insertObjectTD.appendChild(insertObject)
+    insertcell.appendChild(insertObjectTD);
 
-            //Dzialanie
-            tmp = (document.getElementById(("Dzialanie" + LpEdit)).innerHTML);
-            tmpObject = document.getElementById(("Dzialanie" + LpEdit)).parentNode;
-            tmpObject.removeChild(document.getElementById("Dzialanie" + LpEdit));
+    insertcell.id = ("Dzialanie" + parseInt(LpEdit));
+    insertObject.value = tmp;
+    insertObject.id = ("DzialanieInput" + LpEdit);
 
-            var insertKomorka = document.createElement("td");
+    // dodaje element tekstowy w miejsce komorki
+    insertcell = tmpObject.insertBefore(insertcell, document.getElementById("Odpowiedzialny" + LpEdit));
 
-            var insertObject = document.createElement("input");
-            insertKomorka.appendChild(insertObject);
 
-            insertKomorka.id = ("Dzialanie" + parseInt(LpEdit));
-            insertObject.value = tmp;
-            insertObject.id = ("DzialanieInput" + LpEdit);
+    //Odpowiedzialny
+    tmp = (document.getElementById(("Odpowiedzialny" + LpEdit)).innerHTML);
+    tmpObject = document.getElementById(("Odpowiedzialny" + LpEdit)).parentNode;
+    tmpObject.removeChild(document.getElementById("Odpowiedzialny" + LpEdit));
 
-            // dodaje element tekstowy w miejsce komorki
-            insertKomorka = tmpObject.insertBefore(insertKomorka, document.getElementById("Odpowiedzialny" + LpEdit));
+    var insertcell = document.createElement("td");
 
+    var insertObject = document.createElement("input");
+    insertcell.appendChild(insertObject);
 
-            //Odpowiedzialny
-            tmp = (document.getElementById(("Odpowiedzialny" + LpEdit)).innerHTML);
-            tmpObject = document.getElementById(("Odpowiedzialny" + LpEdit)).parentNode;
-            tmpObject.removeChild(document.getElementById("Odpowiedzialny" + LpEdit));
+    insertcell.id = ("Odpowiedzialny" + (LpEdit));
+    insertObject.value = tmp;
+    insertObject.id = ("OdpowiedzialnyInput" + LpEdit);
 
-            var insertKomorka = document.createElement("td");
+    insertcell = tmpObject.insertBefore(insertcell, document.getElementById("Data" + LpEdit));
 
-            var insertObject = document.createElement("input");
-            insertKomorka.appendChild(insertObject);
+    //Data
+    tmp = (document.getElementById(("Data" + LpEdit)).innerHTML);
+    tmpObject = document.getElementById(("Data" + LpEdit)).parentNode;
+    tmpObject.removeChild(document.getElementById("Data" + LpEdit));
 
-            insertKomorka.id = ("Odpowiedzialny" + (LpEdit));
-            insertObject.value = tmp;
-            insertObject.id = ("OdpowiedzialnyInput" + LpEdit);
+    var insertcell = document.createElement("td");
 
-            insertKomorka = tmpObject.insertBefore(insertKomorka, document.getElementById("Data" + LpEdit));
+    var insertObject = document.createElement("input");
+    insertcell.appendChild(insertObject);
 
-            //Data
-            tmp = (document.getElementById(("Data" + LpEdit)).innerHTML);
-            tmpObject = document.getElementById(("Data" + LpEdit)).parentNode;
-            tmpObject.removeChild(document.getElementById("Data" + LpEdit));
+    insertcell.id = ("Data" + LpEdit);
+    insertObject.value = tmp;
+    insertObject.id = ("DataInput" + LpEdit);
 
-            var insertKomorka = document.createElement("td");
+    insertcell = tmpObject.insertBefore(insertcell, document.getElementById("Stan" + LpEdit));
 
-            var insertObject = document.createElement("input");
-            insertKomorka.appendChild(insertObject);
 
-            insertKomorka.id = ("Data" + LpEdit);
-            insertObject.value = tmp;
-            insertObject.id = ("DataInput" + LpEdit);
+    // STAN
+    tmp = (document.getElementById(("Stan" + LpEdit)).innerHTML);
+    tmpObject = document.getElementById(("Stan" + LpEdit)).parentNode;
+    tmpObject.removeChild(document.getElementById("Stan" + LpEdit));
 
-            insertKomorka = tmpObject.insertBefore(insertKomorka, document.getElementById("Stan" + LpEdit));
+    var insertcell = document.createElement("td");
 
+    var insertObject = document.createElement("input");
+    insertcell.appendChild(insertObject);
 
-            // STAN
-            tmp = (document.getElementById(("Stan" + LpEdit)).innerHTML);
-            tmpObject = document.getElementById(("Stan" + LpEdit)).parentNode;
-            tmpObject.removeChild(document.getElementById("Stan" + LpEdit));
+    insertcell.id = ("Stan" + LpEdit);
+    insertObject.value = tmp;
+    insertObject.id = ("StanInput" + LpEdit);
 
-            var insertKomorka = document.createElement("td");
+    insertcell = tmpObject.insertBefore(insertcell, document.getElementById("tr" + LpEdit));
+    ////////////////////////////////////////////////////////////////////////////
 
-            var insertObject = document.createElement("input");
-            insertKomorka.appendChild(insertObject);
 
-            insertKomorka.id = ("Stan" + LpEdit);
-            insertObject.value = tmp;
-            insertObject.id = ("StanInput" + LpEdit);
+    // Dodaje button do comfirmenia
 
-            insertKomorka = tmpObject.insertBefore(insertKomorka, document.getElementById("tr" + LpEdit));
-            ////////////////////////////////////////////////////////////////////////////
+    var insertObject = document.createElement("input");
+    insertObject.type = "button";
+    insertObject.id = ("comfirm" + LpEdit);
+    insertObject.classList.add("customButton");
+    insertObject.value = "Comfirm";
+    insertObject.style.width = "100%";
+    insertObject.onclick = function () {
+        comfirm(this.id);
+    };
 
+    insertObject = tmpObject.insertBefore(insertObject, document.getElementById("tr" + parseInt(LpEdit)));
 
-            // Dodaje button do zatwierdzenia
 
-            var insertObject = document.createElement("input");
-            insertObject.type = "button";
-            insertObject.id = ("comfirm" + LpEdit);
-            insertObject.value = "Zatwierdz";
-            insertObject.style.width = "100%";
-            insertObject.onclick = function () {
-                zatwierdz(this.id);
-            };
+    tmpObject.removeChild(document.getElementById("edit" + LpEdit));
+    tmpObject.removeChild(document.getElementById("delete" + LpEdit));
+}
 
-            insertObject = tmpObject.insertBefore(insertObject, document.getElementById("tr" + parseInt(LpEdit)));
 
+function comfirm(i) {
+    //Dzialanie
+    var LpComfirm;
 
-            tmpObject.removeChild(document.getElementById("edit" + LpEdit));
-            tmpObject.removeChild(document.getElementById("delete" + LpEdit));
-        }
+    for (var tmpedit = -1; !isNaN(i.slice(tmpedit)); tmpedit--) {}
 
+    LpComfirm = i.slice(tmpedit + 1);
 
-        function zatwierdz(i) {
-            //Dzialanie
-            var LpComfirm;
+    tmp = (document.getElementById(("DzialanieInput" + LpComfirm)).value);
+    tmpObject = document.getElementById(("Dzialanie" + LpComfirm)).parentNode;
+    document.getElementById("Dzialanie" + LpComfirm).remove();
 
-            for (var tmpedit = -1; !isNaN(i.slice(tmpedit)); tmpedit--) {}
+    var insertObject = document.createElement("td");
+    insertObject.id = ("Dzialanie" + LpComfirm);
+    insertObject.innerHTML = tmp;
+    insertObject = tmpObject.insertBefore(insertObject, document.getElementById("Odpowiedzialny" + LpComfirm));
 
-            LpComfirm = i.slice(tmpedit + 1);
+    //Odpowiedzialny
 
-            tmp = (document.getElementById(("DzialanieInput" + LpComfirm)).value);
-            tmpObject = document.getElementById(("Dzialanie" + LpComfirm)).parentNode;
-            document.getElementById("Dzialanie" + LpComfirm).remove();
+    tmp = (document.getElementById(("OdpowiedzialnyInput" + LpComfirm)).value);
+    tmpObject = document.getElementById(("Odpowiedzialny" + LpComfirm)).parentNode;
+    document.getElementById("Odpowiedzialny" + LpComfirm).remove();
 
-            var insertObject = document.createElement("td");
-            insertObject.id = ("Dzialanie" + LpComfirm);
-            insertObject.innerHTML = tmp;
-            insertObject = tmpObject.insertBefore(insertObject, document.getElementById("Odpowiedzialny" + LpComfirm));
+    var insertObject = document.createElement("td");
+    insertObject.id = ("Odpowiedzialny" + LpComfirm);
+    insertObject.innerHTML = tmp;
+    insertObject = tmpObject.insertBefore(insertObject, document.getElementById("Data" + LpComfirm));
+    //Data
 
-            //Odpowiedzialny
+    tmp = (document.getElementById(("DataInput" + LpComfirm)).value);
+    tmpObject = document.getElementById(("Data" + LpComfirm)).parentNode;
+    document.getElementById("Data" + LpComfirm).remove();
 
-            tmp = (document.getElementById(("OdpowiedzialnyInput" + LpComfirm)).value);
-            tmpObject = document.getElementById(("Odpowiedzialny" + LpComfirm)).parentNode;
-            document.getElementById("Odpowiedzialny" + LpComfirm).remove();
+    var insertObject = document.createElement("td");
+    insertObject.id = ("Data" + LpComfirm);
+    insertObject.innerHTML = tmp;
+    insertObject = tmpObject.insertBefore(insertObject, document.getElementById("Stan" + LpComfirm));
 
-            var insertObject = document.createElement("td");
-            insertObject.id = ("Odpowiedzialny" + LpComfirm);
-            insertObject.innerHTML = tmp;
-            insertObject = tmpObject.insertBefore(insertObject, document.getElementById("Data" + LpComfirm));
-            //Data
+    //Stan
 
-            tmp = (document.getElementById(("DataInput" + LpComfirm)).value);
-            tmpObject = document.getElementById(("Data" + LpComfirm)).parentNode;
-            document.getElementById("Data" + LpComfirm).remove();
+    tmp = (document.getElementById(("StanInput" + LpComfirm)).value);
+    tmpObject = document.getElementById(("Stan" + LpComfirm)).parentNode;
+    document.getElementById("Stan" + LpComfirm).remove();
 
-            var insertObject = document.createElement("td");
-            insertObject.id = ("Data" + LpComfirm);
-            insertObject.innerHTML = tmp;
-            insertObject = tmpObject.insertBefore(insertObject, document.getElementById("Stan" + LpComfirm));
+    var insertObject = document.createElement("td");
+    insertObject.id = ("Stan" + LpComfirm);
+    insertObject.innerHTML = tmp;
+    insertObject = tmpObject.insertBefore(insertObject, document.getElementById("tr" + LpComfirm));
 
-            //Stan
+    // Button reverse
+    tmpObject.removeChild(document.getElementById("comfirm" + LpComfirm));
 
-            tmp = (document.getElementById(("StanInput" + LpComfirm)).value);
-            tmpObject = document.getElementById(("Stan" + LpComfirm)).parentNode;
-            document.getElementById("Stan" + LpComfirm).remove();
+    var cell = document.createElement("button");
+    cell.id = ("edit" + LpComfirm);
+    cell.classList.add("customButton");
+    cell.innerHTML = "edit";
+    cell.addEventListener('click', function () {
+        editKomorke(this.id);
+    });
+    cell = tmpObject.insertBefore(cell, document.getElementById("tr" + LpComfirm));
 
-            var insertObject = document.createElement("td");
-            insertObject.id = ("Stan" + LpComfirm);
-            insertObject.innerHTML = tmp;
-            insertObject = tmpObject.insertBefore(insertObject, document.getElementById("tr" + LpComfirm));
+    var cell = document.createElement("button");
+    cell.id = ("delete" + LpComfirm);
+    cell.classList.add("customButton");
+    cell.innerHTML = "Usun";
+    cell.addEventListener('click', function () {
+        usunKomorke(this.id);
+    });
+    cell = tmpObject.insertBefore(cell, document.getElementById("tr" + LpComfirm));
+}
 
-            // Button reverse
-            tmpObject.removeChild(document.getElementById("comfirm" + LpComfirm));
+function usunKomorke(i) {
+    var LpDelete;
+    for (var tmpedit = -1; !isNaN(i.slice(tmpedit)); tmpedit--) {}
+    LpDelete = i.slice(tmpedit + 1);
 
-            var komorka = document.createElement("button");
-            komorka.id = ("edit" + LpComfirm);
-            komorka.innerHTML = "Edytuj";
-            komorka.addEventListener('click', function () {
-                edytujKomorke(this.id);
-            });
-            komorka = tmpObject.insertBefore(komorka, document.getElementById("tr" + LpComfirm));
+    document.getElementById("a" + LpDelete).remove();
+    document.getElementById("Dzialanie" + LpDelete).remove();
+    document.getElementById("Odpowiedzialny" + LpDelete).remove();
+    document.getElementById("Data" + LpDelete).remove();
+    document.getElementById("Stan" + LpDelete).remove();
+    document.getElementById("edit" + LpDelete).remove();
+    document.getElementById("delete" + LpDelete).remove();
+    document.getElementById("tr" + LpDelete).remove();
+    Lp -= 1;
+    let moreToChange = parseInt(LpDelete) + 1;
+    while (moreToChange <= Lp) {
+        document.getElementById("a" + (parseInt(moreToChange))).id = "a" + String(moreToChange - 1);
+        document.getElementById("Dzialanie" + (parseInt(moreToChange))).id = "Dzialanie" + String(moreToChange -
+            1);
+        document.getElementById("Odpowiedzialny" + (parseInt(moreToChange))).id = "Odpowiedzialny" + String(
+            moreToChange - 1);
+        document.getElementById("Data" + (parseInt(moreToChange))).id = "Data" + String(moreToChange - 1);
+        document.getElementById("Stan" + (parseInt(moreToChange))).id = "Stan" + String(moreToChange - 1);
 
-            var komorka = document.createElement("button");
-            komorka.id = ("delete" + LpComfirm);
-            komorka.innerHTML = "Usun";
-            komorka.addEventListener('click', function () {
-                usunKomorke(this.id);
-            });
-            komorka = tmpObject.insertBefore(komorka, document.getElementById("tr" + LpComfirm));
-        }
+        if (document.getElementById("DzialanieInput" + (parseInt(moreToChange))) != null) {
 
-        function usunKomorke(i) {
-            var LpDelete;
-            for (var tmpedit = -1; !isNaN(i.slice(tmpedit)); tmpedit--) {}
-            LpDelete = i.slice(tmpedit + 1);
-
-            document.getElementById("a" + LpDelete).remove();
-            document.getElementById("Dzialanie" + LpDelete).remove();
-            document.getElementById("Odpowiedzialny" + LpDelete).remove();
-            document.getElementById("Data" + LpDelete).remove();
-            document.getElementById("Stan" + LpDelete).remove();
-            document.getElementById("edit" + LpDelete).remove();
-            document.getElementById("delete" + LpDelete).remove();
-            document.getElementById("tr" + LpDelete).remove();
-            Lp -= 1;
-            let moreToChange = parseInt(LpDelete) + 1;
-            while (moreToChange <= Lp) {
-                document.getElementById("a" + (parseInt(moreToChange))).id = "a" + String(moreToChange - 1);
-                document.getElementById("Dzialanie" + (parseInt(moreToChange))).id = "Dzialanie" + String(moreToChange -
-                    1);
-                document.getElementById("Odpowiedzialny" + (parseInt(moreToChange))).id = "Odpowiedzialny" + String(
+            document.getElementById("DzialanieInput" + (parseInt(moreToChange))).id = "DzialanieInput" + String(
+                moreToChange - 1);
+            document.getElementById("OdpowiedzialnyInput" + (parseInt(moreToChange))).id =
+                "OdpowiedzialnyInput" + String(
                     moreToChange - 1);
-                document.getElementById("Data" + (parseInt(moreToChange))).id = "Data" + String(moreToChange - 1);
-                document.getElementById("Stan" + (parseInt(moreToChange))).id = "Stan" + String(moreToChange - 1);
-
-                if (document.getElementById("DzialanieInput" + (parseInt(moreToChange))) != null) {
-
-                    document.getElementById("DzialanieInput" + (parseInt(moreToChange))).id = "DzialanieInput" + String(
-                        moreToChange - 1);
-                    document.getElementById("OdpowiedzialnyInput" + (parseInt(moreToChange))).id =
-                        "OdpowiedzialnyInput" + String(
-                            moreToChange - 1);
-                    document.getElementById("DataInput" + (parseInt(moreToChange))).id = "DataInput" + String(
-                        moreToChange - 1);
-                    document.getElementById("StanInput" + (parseInt(moreToChange))).id = "StanInput" + String(
-                        moreToChange - 1);
-                    document.getElementById("comfirm" + (parseInt(moreToChange))).id = "comfirm" + String(
-                        moreToChange - 1);
-                } else {
-                    document.getElementById("edit" + (parseInt(moreToChange))).id = "edit" + String(moreToChange - 1);
-                    document.getElementById("delete" + (parseInt(moreToChange))).id = "delete" + String(moreToChange -
-                        1);
-
-                }
-
-
-
-                document.getElementById("tr" + (parseInt(moreToChange))).id = "tr" + String(moreToChange - 1);
-                document.getElementById("a" + String(moreToChange - 1)).innerHTML = String(moreToChange - 1);
-
-                moreToChange += 1;
-            }
-
-
-
-
+            document.getElementById("DataInput" + (parseInt(moreToChange))).id = "DataInput" + String(
+                moreToChange - 1);
+            document.getElementById("StanInput" + (parseInt(moreToChange))).id = "StanInput" + String(
+                moreToChange - 1);
+            document.getElementById("comfirm" + (parseInt(moreToChange))).id = "comfirm" + String(
+                moreToChange - 1);
+        } else {
+            document.getElementById("edit" + (parseInt(moreToChange))).id = "edit" + String(moreToChange - 1);
+            document.getElementById("delete" + (parseInt(moreToChange))).id = "delete" + String(moreToChange -
+                1);
 
         }
+
+
+
+        document.getElementById("tr" + (parseInt(moreToChange))).id = "tr" + String(moreToChange - 1);
+        document.getElementById("a" + String(moreToChange - 1)).innerHTML = String(moreToChange - 1);
+
+        moreToChange += 1;
+    }
+
+
+
+
+
+}
